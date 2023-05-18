@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .f-hoverlabel:hover .f-hoverimg {
+    transition: all .3s;
+    opacity: 100%;
+  }
+  .f-hoverlabel:hover .f-hoverparagraph {
+    transition: all .3s;
+    color: #000;
+  }
+  .f-hoverlabel:hover .f-after {
+    transition: all .3s;
+    background-color: #ddd;
+  }
+  input:checked + div > .f-hoverimg {
+    opacity: 100%;
+  }
+  input:checked + div > .f-hoverparagraph {
+    color: #000;
+  }
+  input:checked + div > .f-after {
+    background-color: #000;
+  }
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

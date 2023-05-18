@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "dev": "set DEBUG=app:* & nodemon app.js",
     "start": "node app.js"
