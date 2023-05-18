@@ -1,5 +1,6 @@
-import mongoose from 'mongoose';
-
+import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
+import bcryptjs from "bcryptjs";
 
 //////////////////////////////////////////////////////////////////////////////////
 //                                SCHEMA DETAIL                                 //
@@ -15,67 +16,85 @@ import mongoose from 'mongoose';
 //  modified_at: date of last modification, automatic.                          //
 //////////////////////////////////////////////////////////////////////////////////
 
-
-const userSchema = new mongoose.Schema(
-    {
-        username: {
-            type: String,
-            unique: true,
-        },
-
-        password: {
-            type: String,
-            minlength: 6,
-        },
-
-        email: {
-            type: String,
-            unique: true,
-        },
-
-        role: {
-            type: String,
-            default: "user",
-        },
-
-        status: {
-            type: String,
-            default: "active",
-        },
-
-        avatar: {
-            type:String,
-            default: 'img/avatar.png',
-        },
-
-        favourites: {
-            type: Array,
-        },
-
-        placesForRent: {
-            type: Array,
-        },
-
-        placesRented: {
-            type: Array,
-        },
-
-        created_at: {
-            type: Date,
-            default: Date.now
-        },
-
-        modified_at: {
-            type: Date,
-            default: Date.now
-        },
+const userSchema = new Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+      lowercase: true,
+      index: { unique: true },
     },
-    {
-        versionKey: false,
-    }
+    password: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      unique: true,
+    },
+    role: {
+      type: String,
+      default: "user",
+    },
+
+    status: {
+      type: String,
+      default: "active",
+    },
+
+    avatar: {
+      type: String,
+      default: "img/avatar.png",
+    },
+
+    favourites: {
+      type: Array,
+    },
+
+    placesForRent: {
+      type: Array,
+    },
+
+    placesRented: {
+      type: Array,
+    },
+
+    created_at: {
+      type: Date,
+      default: Date.now,
+    },
+
+    modified_at: {
+      type: Date,
+      default: Date.now,
+    },
+  },
+  {
+    versionKey: false,
+  }
 );
 
-mongoose.set("strictQuery", false);
+userSchema.pre("save", async function (next) {
+  const user = this;
+
+  if (!user.isModified("password")) return next();
+
+  try {
+    const salt = await bcryptjs.genSalt(10);
+    user.password = await bcryptjs.hash(user.password, salt);
+    next();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Fallo el hash de contraseña.");
+  }
+});
+
+userSchema.methods.comparePassword = async function (candidatePassword) {
+  return await bcryptjs.compare(candidatePassword, this.password);
+};
+
 
 const UsersModel = mongoose.model("Users", userSchema);
 
