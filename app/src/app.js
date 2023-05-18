@@ -1,5 +1,6 @@
 import express from "express";
 import routerUsers from "./routes/users.js";
+import routerAcc from "./routes/accommodation.js";
 import { connectDB } from './database.js';
 
 const app = express();
@@ -9,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/api/users", routerUsers);
-
+app.use('/api/accommodation', routerAcc)
 // in case of using another route
 app.all("*", (req, res) => {
     res.status(404).json({ error: "404 Not Found" });
