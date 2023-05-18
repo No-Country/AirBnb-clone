@@ -1,0 +1,32 @@
+import express from "express";
+import routerUsers from "./routes/users.js";
+import { connectDB } from './database.js';
+
+const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json());
+
+app.use("/api/users", routerUsers);
+
+// in case of using another route
+app.all("*", (req, res) => {
+    res.status(404).json({ error: "404 Not Found" });
+});
+
+const PORT = 8080;
+
+connectDB().then(() => {
+    const server = app.listen(PORT, () => {
+        console.log(`Server listening on port ${PORT}.`);
+    });
+
+    server.on("error", (error) => {
+        console.log("Error starting Express server: " + error.message);
+        process.exit(1);
+    });
+}).catch((error) => {
+    console.error("Error connecting to database: " + error.message);
+    process.exit(1);
+});

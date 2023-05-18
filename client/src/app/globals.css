@@ -2,11 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-  height: 100%;
-  background-image: url("/images/home.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body,
+  :root {
+    height: 100%;
+    background-image: url("/images/home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
+  .f-hoverlabel:hover .f-hoverimg {
+    transition: all .3s;
+    opacity: 100%;
+  }
+  .f-hoverlabel:hover .f-hoverparagraph {
+    transition: all .3s;
+    color: #000;
+  }
+  .f-hoverlabel:hover .f-after {
+    transition: all .3s;
+    background-color: #ddd;
+  }
+  input:checked + div > .f-hoverimg {
+    opacity: 100%;
+  }
+  input:checked + div > .f-hoverparagraph {
+    color: #000;
+  }
+  input:checked + div > .f-after {
+    background-color: #000;
+  }
 }
