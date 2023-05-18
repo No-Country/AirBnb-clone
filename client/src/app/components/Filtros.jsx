@@ -1,17 +1,17 @@
 import React from 'react'
 import Image from 'next/image'
 /* Assets */
-import habitaciones from '../assets/habitaciones.jpg'
-import piscinas from '../assets/piscinas.jpg'
-import campo from '../assets/campo.jpg'
-import cabanas from '../assets/cabanas.jpg'
-import playa from '../assets/playa.jpg'
-import populares from '../assets/populares.jpg'
-import barcos from '../assets/barcos.jpg'
-import tropical from '../assets/tropical.jpg'
-import lagos from '../assets/lagos.jpg'
-import yurtas from '../assets/yurtas.jpg'
-import filter from '../assets/filter.svg'
+import habitaciones from '@assets/habitaciones.jpg'
+import piscinas from '@assets/piscinas.jpg'
+import campo from '@assets/campo.jpg'
+import cabanas from '@assets/cabanas.jpg'
+import playa from '@assets/playa.jpg'
+import populares from '@assets/populares.jpg'
+import barcos from '@assets/barcos.jpg'
+import tropical from '@assets/tropical.jpg'
+import lagos from '@assets/lagos.jpg'
+import yurtas from '@assets/yurtas.jpg'
+import filter from '@assets/filter.svg'
 
 const Filtros = () => {
   return (
