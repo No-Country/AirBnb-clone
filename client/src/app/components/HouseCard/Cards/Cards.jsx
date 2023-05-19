@@ -5,7 +5,7 @@ export default function Cards() {
     return(
         <div className="flex flex-wrap m-12">
            {casas.map((e,i)=>(
-            <HouseCard lugar={e.lugar} fecha={e.fecha} precio={e.precio} estrellas={e.estrellas} image={e.image} anfitrion={e.anfitrion}/>
+            <HouseCard key={i} lugar={e.lugar} fecha={e.fecha} precio={e.precio} estrellas={e.estrellas} image={e.image} anfitrion={e.anfitrion}/>
            )
            )}
         </div>
