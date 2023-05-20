@@ -7,7 +7,7 @@ import UserMenu from "./UserMenu"
 
 const Navbar = () => {
     return (
-        <div className="fixed w-full">
+        <div className="fixed w-full z-[100]">
             <div className="py-4">
                 <Container>
                     <div className="flex items-center justify-between gap-3 md:gap-0">
