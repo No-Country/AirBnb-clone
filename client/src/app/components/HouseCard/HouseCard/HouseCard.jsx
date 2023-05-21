@@ -5,7 +5,7 @@ import {AiTwotoneStar} from "react-icons/ai"
 const HouseCard = (props) => {
     return (
         <div className="pr-3 pl-3 pb-8 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4.5 cursor-pointer">
-            <HouseCardImage image={props.image} alfitrionImage={props.anfitrion.image}/>
+            <HouseCardImage handleOpenModal={props.handleOpenModal} image={props.image} alfitrionImage={props.anfitrion.image}/>
             <div className="m-1">
                 <div className="flex justify-between mt-3 ">
                     <p className="font-semibold">{props.lugar}</p>
