@@ -1,22 +1,27 @@
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import "dotenv/config";
+import authRouter from "./routes/auth.route.js"
 import routerUsers from "./routes/users.js";
-import routerAcc from "./routes/accommodation.js";
 import { connectDB } from './database.js';
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
-
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/users", routerUsers);
+app.use('/api/auth', authRouter);
 app.use('/api/accommodation', routerAcc)
+
 // in case of using another route
 app.all("*", (req, res) => {
     res.status(404).json({ error: "404 Not Found" });
 });
 
-const PORT = 8080;
+const PORT = process.env.PORT;
 
 connectDB().then(() => {
     const server = app.listen(PORT, () => {
