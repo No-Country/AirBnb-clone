@@ -3,7 +3,7 @@ dotenv.config();
 
 const config = {
     origin:"http://localhost:3000",
-    port: process.env.PORT,
+    port: process.env.MONGODB_PORT,
     mongoURI: process.env.MONGODB_URI,
     googleClientId: process.env.CLIENT_ID,
     googleClientSecret: process.env.CLIENT_SECRET,

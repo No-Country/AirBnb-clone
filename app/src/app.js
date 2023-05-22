@@ -14,6 +14,7 @@ app.use(cookieParser());
 
 app.use("/api/users", routerUsers);
 app.use('/api/auth', authRouter);
+app.use('/api/accommodation', routerAcc)
 
 // in case of using another route
 app.all("*", (req, res) => {
@@ -21,7 +22,6 @@ app.all("*", (req, res) => {
 });
 
 const PORT = process.env.PORT;
-
 
 connectDB().then(() => {
     const server = app.listen(PORT, () => {

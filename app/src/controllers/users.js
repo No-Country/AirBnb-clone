@@ -42,6 +42,7 @@ const updateUser = async (req, res) => {
 };
 
 const deleteUser = async (req, res) => {
+
   try {
       const { userId } = req.params;
 
@@ -60,10 +61,10 @@ const deleteUser = async (req, res) => {
   }
 };
 
-
 export default{
   getUsers,
   getUser,
   updateUser,
   deleteUser,
 }
+
