@@ -2,26 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html,
+  body,
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    height: 100%;
+    background-image: url("/images/home.png");
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer utilities {
+  .f-hoverlabel:hover .f-hoverimg {
+    transition: all .3s;
+    opacity: 100%;
+  }
+  .f-hoverlabel:hover .f-hoverparagraph {
+    transition: all .3s;
+    color: #000;
+  }
+  .f-hoverlabel:hover .f-after {
+    transition: all .3s;
+    background-color: #ddd;
+  }
+  input:checked + div > .f-hoverimg {
+    opacity: 100%;
+  }
+  input:checked + div > .f-hoverparagraph {
+    color: #000;
+  }
+  input:checked + div > .f-after {
+    background-color: #000;
+  }
 }

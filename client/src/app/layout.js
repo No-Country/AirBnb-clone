@@ -1,3 +1,5 @@
+import Hero from './components/hero/Hero'
+import Navbar from './components/navbar/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -11,7 +13,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={inter.className}>
+        <Navbar />
+        <Hero />
+      </body>
+    </html >
   )
 }
