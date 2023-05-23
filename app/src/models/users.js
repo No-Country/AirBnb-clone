@@ -43,8 +43,7 @@ const userSchema = new Schema(
       type: String,
       default: "active",
     },
-
-    avatar: {
+    picture: {
       type: String,
       default: "img/avatar.png",
     },
