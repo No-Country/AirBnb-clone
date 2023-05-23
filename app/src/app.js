@@ -4,6 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import authRouter from "./routes/auth.route.js"
 import routerUsers from "./routes/users.js";
+import routerFavs from "./routes/favs.js";
 import { connectDB } from './database.js';
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cookieParser());
 app.use("/api/users", routerUsers);
 app.use('/api/auth', authRouter);
 app.use('/api/accommodation', routerAcc)
+app.use('/api/favourites', routerFavs);
 
 // in case of using another route
 app.all("*", (req, res) => {
