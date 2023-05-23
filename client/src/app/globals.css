@@ -6,14 +6,6 @@
   * {
     box-sizing: border-box;
   }
-  html,
-  body,
-  :root {
-    height: 100%;
-    background-image: url("/images/home.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
 }
 
 @layer utilities {
