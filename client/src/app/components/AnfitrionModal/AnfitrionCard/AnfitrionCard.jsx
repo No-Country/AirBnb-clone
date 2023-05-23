@@ -6,7 +6,7 @@ export default function AnfitrionCard(params) {
 
 
     return (
-        <div className="flex m-4 mt-0 bg-white shadow-2xl py-3 rounded-3xl border">
+        <div className="flex m-4 mt-0 bg-white shadow-2xl py-3 rounded-3xl border border-t-0">
             <div className="w-3/4 flex flex-col justify-center items-center ">
                 <div className="rounded-full w-24 h-24 align-middle overflow-hidden">
                     <Image
