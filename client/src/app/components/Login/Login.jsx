@@ -1,6 +1,8 @@
 "use client"
 
+import logoGoogle from './google.svg'
 import React, {useRef} from 'react';
+import Image from 'next/image';
 
 const Login = ({ setRegister }) => {
   const container = useRef()
@@ -66,12 +68,30 @@ const Login = ({ setRegister }) => {
 
 
       <div className='px-[20px]'>
-      <button 
-          className='w-full mt-[20px] bg-white h-[48px] rounded-md font-semibold text-black border-[1px] border-black hover:cursor-pointer'
-          onClick={handleRegister}
-        >
-          Registrarse
-      </button>
+        <button 
+            className='w-full mt-[20px] bg-white h-[48px] rounded-md font-semibold text-black border-[1px] border-black hover:cursor-pointer'
+            onClick={handleRegister}
+          >
+            Registrarse
+        </button>
+      </div>
+
+      <div className='px-[20px]'>
+        <button 
+            className='w-full mt-[20px] bg-white h-[48px] rounded-md font-semibold text-black border-[1px] border-black hover:cursor-pointer relative'
+            onClick={handleRegister}
+          >
+            <Image 
+              src={logoGoogle} 
+              alt="Google Logo"
+              width={20}
+              height={20}
+              className='absolute top-[14px] left-[14px] md:left-[25px]'
+            />
+            <span>
+              Continúa con Google
+            </span>
+        </button>
       </div>
     </div>
   );
