@@ -62,7 +62,7 @@ const FiltrosModal = ({ modalFiltros, setModalFiltros }) => {
           </div>
 
           {/* Footer */}
-          <div className='h-[80px] w-full bg-white fixed bottom-[-5px] border-t-[1px] border-[#c1c1c1] md:bottom-[40px] md:w-[750px] rounded-b-lg flex justify-between items-center px-[20px]'>
+          <div className='h-[80px] w-full bg-white fixed bottom-[-5px] border-t-[1px] border-[#c1c1c1] md:bottom-[10px] md:w-[750px] rounded-b-lg flex justify-between items-center px-[20px]'>
             <input type="reset" value="Quitar todo" className='underline font-semibold'/>
 
             <button type='submit' className='bg-black w-[150px] h-[50px] text-white rounded-lg'>Mostrar lugares</button>
