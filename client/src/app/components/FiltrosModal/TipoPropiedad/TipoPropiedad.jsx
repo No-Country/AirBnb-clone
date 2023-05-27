@@ -13,7 +13,7 @@ const TipoPropiedad = () => {
 
         <div>
           <input 
-            type="checkbox" 
+            type="radio" 
             name="tipo" 
             id="casa" 
             className='tp-checked hidden'
@@ -33,7 +33,7 @@ const TipoPropiedad = () => {
         </div>
 
         <div>
-          <input type="checkbox" name="tipo" id="apartamento" className='tp-checked hidden' value="apartamento" />  
+          <input type="radio" name="tipo" id="apartamento" className='tp-checked hidden' value="apartamento" />  
           <label 
             htmlFor="apartamento" 
             className='p-4 flex flex-col justify-between w-full h-[150px] rounded-lg border-[1px] border-[#dddddd] hover:border-black hover:cursor-pointer transition-all'
@@ -49,7 +49,7 @@ const TipoPropiedad = () => {
 
 
         <div>
-          <input type="checkbox" name="tipo" id="huespedes" className='tp-checked hidden' value="huespedes" />
+          <input type="radio" name="tipo" id="huespedes" className='tp-checked hidden' value="huespedes" />
           <label 
             htmlFor="huespedes" 
             className='p-4 flex flex-col justify-between w-full h-[150px] rounded-lg border-[1px] border-[#dddddd] hover:border-black hover:cursor-pointer transition-all'
