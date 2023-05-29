@@ -10,6 +10,6 @@ export const connectDB = async () => {
         console.log('Sucessfully connected to database.');
     } catch (error) {
         console.error('Error connecting to database.', error);
-        process.exit(1); // Detener la aplicación si no se puede conectar a la base de datos
+        process.exit(1); // Stop the application if it can't connect to the database.
     }
 };
