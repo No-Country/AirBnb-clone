@@ -1,5 +1,6 @@
 "use client"
 
+
 import React, { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
@@ -11,6 +12,18 @@ import { FiltrosModal } from "./components/FiltrosModal/FiltrosModal";
 export default function Page() {
   const [modalFiltros, setModalFiltros] = useState(false)
 
+
+    const [modalOpen, setModalOpen] = useState(false);
+
+     const handleOpenModal = () => {
+      setModalOpen(true);
+    };
+  
+    const handleCloseModal = () => {
+      setModalOpen(false);
+    };
+
+    
   return(
       <>
         <nav>
@@ -25,8 +38,9 @@ export default function Page() {
           <Categorias modalFiltros={modalFiltros} setModalFiltros={setModalFiltros} />
           <Cards/>
         </main>
-        <AnfitrionModal/>
+        <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal}/>
       </>
   )
+
     
 }
