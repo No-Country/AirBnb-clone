@@ -5,7 +5,9 @@ export default function Cards({handleOpenModal}) {
     return(
         <div className="flex flex-wrap m-12">
            {casas.map((e,i)=>(
+
             <HouseCard key={i} handleOpenModal={handleOpenModal} lugar={e.lugar} fecha={e.fecha} precio={e.precio} estrellas={e.estrellas} image={e.image} anfitrion={e.anfitrion}/>
+
            )
            )}
         </div>

@@ -4,7 +4,8 @@ import bcryptjs from "bcryptjs";
 
 //////////////////////////////////////////////////////////////////////////////////
 //                                SCHEMA DETAIL                                 //
-//  username:  unique, String.                                                  //
+//  firstname: String                                                           //
+//  password: String                                                            //
 //  password: password associated to an username, minlength 6, String.          //
 //  email: unique, String.                                                      //
 //  role: su, admin, host, user, by default starts with user, String.           //
@@ -30,9 +31,11 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    username: {
+    firstname: {
       type: String,
-      unique: true,
+    },
+    lastname: {
+      type: String,
     },
     role: {
       type: String,
@@ -43,8 +46,7 @@ const userSchema = new Schema(
       type: String,
       default: "active",
     },
-
-    avatar: {
+    picture: {
       type: String,
       default: "img/avatar.png",
     },

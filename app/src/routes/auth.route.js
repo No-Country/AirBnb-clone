@@ -5,14 +5,16 @@ import {
   bodyLoginValidator,
   bodyRegisterValidator,
 } from "../middlewares/validator.js";
-import { infoUser, login, logout, refreshToken, registerUser } from "../controllers/users.js";
+import authController from '../controllers/auth.controller.js';
 
 const router = express.Router();
 
-router.post("/register", bodyRegisterValidator,registerUser);
-router.post("/login", bodyLoginValidator,login);
-router.post("/protected", requireToken,infoUser);
-router.post("/refresh", requireRefreshToken, refreshToken);
-router.post("/logout",logout);
+router.post("/register", bodyRegisterValidator,authController.registerUser);
+router.post("/login", bodyLoginValidator,authController.login);
+router.post("/protected", requireToken,authController.infoUser);
+router.post("/refresh", requireRefreshToken,authController.refreshToken);
+router.post("/logout",authController.logout);
+router.get("/session/auth0/google/", authController.googleOauthHandler)
+
 
 export default router;
