@@ -26,12 +26,19 @@ const Category = ({hfor, src, title}) => {
   )
 }
 
-const Filtros = () => {
+const Categorias = ({setModalFiltros}) => {
+  const openModalFiltros = () => {
+    setModalFiltros(true)
+  }
+
   return (
     <div className="h-[78px] w-full flex overflow-hidden relative border-b-[1px]">
       {/* Boton filtro mobile */}
       <div className='flex flex-col justify-center align-center ml-[10px] md:hidden pr-[10px] border-r-[1px]'>
-        <button className='w-[50px] h-[50px] rounded-full border-solid border-[1px]'>
+        <button 
+          onClick={openModalFiltros}
+          className='w-[50px] h-[50px] rounded-full border-solid border-[1px]'
+        >
           <Image src={filter} alt='' width={18} height={18} className='m-auto' />
         </button>
       </div>
@@ -52,7 +59,10 @@ const Filtros = () => {
 
       {/* Boton Filtro Desktop */}
       <div className="hidden md:flex h-full w-[115px] bg-white md:justify-center md:items-center">
-        <button className='bg-white w-[90px] h-[48px] rounded-[15px] border-solid border-[1px] border-[#dddddd] hover:border-[#000] transition-all'>
+        <button 
+          onClick={openModalFiltros}
+          className='bg-white w-[90px] h-[48px] rounded-[15px] border-solid border-[1px] border-[#dddddd] hover:border-[#000] transition-all'
+        >
           <span className='flex justify-center gap-[8px]'>
             <Image src={filter} width={14} height={14} alt="" />
             <span className="text-[12px] font-bold">Filtros</span>
@@ -63,4 +73,4 @@ const Filtros = () => {
   )
 }
 
-export default Filtros
+export default Categorias
