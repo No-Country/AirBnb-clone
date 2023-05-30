@@ -33,7 +33,7 @@ export default function AnfitrionModal({ isOpen, onClose }) {
    
 
   return (
-    <div onClick={closeModal} className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div onClick={closeModal} className="fixed inset-0 flex items-center justify-center z-[400] bg-black bg-opacity-50">
       <div className="bg-white rounded-3xl overflow-hidden w-11/12 h-[90%] max-w-sm border" onClick={(e) => e.stopPropagation()} style={modalContainerStyle}>
         <div className="bg-white border-b p-3 sticky top-0">
           <div onClick={closeModal} className=" cursor-pointer inline-block rounded-full p-2 hover:bg-slate-100">

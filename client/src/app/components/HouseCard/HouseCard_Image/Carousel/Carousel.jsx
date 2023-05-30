@@ -3,7 +3,6 @@ import React, { useEffect } from "react"
 import { useState } from "react"
 import {MdNavigateNext, MdNavigateBefore} from "react-icons/md"
 import {RxDotFilled} from "react-icons/rx"
-
 export default function Carousel({ children: slides}) {
     const [mauseOver, setMauseOver] = useState(false)
     const [curr, setCurr] = useState(0)
@@ -23,7 +22,7 @@ export default function Carousel({ children: slides}) {
     
     return(
         <div onMouseEnter={()=>handledMouseEnter()} onMouseLeave={()=>handledMouseLeave()} className="overflow-hidden relative rounded-xl">
-            <div className="flex transition-transform ease-out duration-500" style={{transform: `translateX(-${curr * 100}%)`}}>{slides}</div>
+                <div className="flex transition-transform ease-out duration-500" style={{transform: `translateX(-${curr * 100}%)`}}>{slides}</div>  
             <div className="absolute inset-0 flex items-center justify-between p-4 ">
                 <MdNavigateBefore onClick={prev} className={crossClass()} />
                 <MdNavigateNext onClick={next} className={crossClass()} />

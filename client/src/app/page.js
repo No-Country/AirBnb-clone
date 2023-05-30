@@ -16,10 +16,12 @@ export default function Page() {
     const [modalOpen, setModalOpen] = useState(false);
 
      const handleOpenModal = () => {
+      event.stopPropagation();
       setModalOpen(true);
     };
   
     const handleCloseModal = () => {
+      event.stopPropagation();
       setModalOpen(false);
     };
 
@@ -36,7 +38,7 @@ export default function Page() {
           {modalFiltros && <FiltrosModal modalFiltros={modalFiltros} setModalFiltros={setModalFiltros} />}
           <h1 className="font-bold text-[24px] px-[80px] mt-[20px] md:text-[30px]">Descubre Lugares</h1>
           <Categorias modalFiltros={modalFiltros} setModalFiltros={setModalFiltros} />
-          <Cards/>
+          <Cards handleOpenModal={handleOpenModal}/>
         </main>
         <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal}/>
       </>
