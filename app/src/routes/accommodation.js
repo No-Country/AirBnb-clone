@@ -1,13 +1,13 @@
 import express from 'express';
 import accControllers from '../controllers/accommodation.js'
+import { requireToken } from '../middlewares/requireToken.js';
 
 const routerAcc = express.Router();
 
-routerAcc.get('/', accControllers.getAcc)
-routerAcc.get('/:id', accControllers.getAccById)
-routerAcc.post('/', accControllers.addAcc)
-routerAcc.put('/:id', accControllers.editAcc)
-routerAcc.delete('/:id', accControllers.deleteAcc)
-
+routerAcc.get('/',accControllers.getAcc)
+routerAcc.get('/:id',accControllers.getAccById)
+routerAcc.post('/',requireToken, accControllers.addAcc)
+routerAcc.put('/:id',requireToken, accControllers.editAcc)
+routerAcc.delete('/:id',requireToken, accControllers.deleteAcc)
 
 export default routerAcc;
