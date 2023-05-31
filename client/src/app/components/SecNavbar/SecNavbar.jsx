@@ -10,7 +10,7 @@ import compiPrimary from './compiPrimary.png'
 function SecNavbar() {
   return (
     <nav className='h-[64px] md:h-[80px] bg-white border-b-[1px] border-[#ddd] fixed top-0 left-0 w-full'>
-      <div className='h-full w-full flex justify-between items-center px-[20px]'>
+      <div className='h-full w-full flex justify-between items-center px-[20px] md:px-[100px]'>
         <Link href="/" className='md:hidden'>
           <AiOutlineLeft />
         </Link>

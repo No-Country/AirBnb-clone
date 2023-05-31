@@ -142,4 +142,9 @@
       opacity: 0;
     }
   }
+  .bxShadowPrimary {
+    box-shadow: -1px 0px 15px 1px rgba(0,0,0,0.30);
+    -webkit-box-shadow: -1px 0px 15px 1px rgba(0,0,0,0.30);
+    -moz-box-shadow: -1px 0px 15px 1px rgba(0,0,0,0.30);
+  }
 }
