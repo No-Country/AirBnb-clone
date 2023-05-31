@@ -13,9 +13,7 @@ export default function Page() {
 
   return(
       <>
-        <nav>
-          <Navbar/>
-        </nav>
+        <Navbar/>
         <header>
           <Hero/>
         </header>
