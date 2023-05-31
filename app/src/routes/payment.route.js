@@ -14,7 +14,7 @@ router.get('/', function(req,res,next){
     });
 });
 
-router.get("/paymentMp", function (req, res, next) {
+router.get("/paymentMp",requireToken, function (req, res, next) {
     PaymentInstance.getPaymentLink(req, res);
   });
 
