@@ -40,7 +40,6 @@ const registerUser = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
     let user = await UsersModel.findOne({ email });
     if (!user) {
       return res.status(403).json({ error: "incorrect credentials" });

@@ -3,9 +3,13 @@
 import logoGoogle from './google.svg'
 import React, {useRef} from 'react';
 import Image from 'next/image';
+import allActions from '@/store/actions';
+import { useDispatch } from 'react-redux';
 
 const Login = ({ setRegister }) => {
-  const container = useRef()
+  const container = useRef();
+  const dispatch = useDispatch();
+
   const handleRegister = () => {
     container.current.classList.add('fade-out')
     /*  */
@@ -14,10 +18,13 @@ const Login = ({ setRegister }) => {
     }, 400)
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    const fields = Object.fromEntries(new window.FormData(e.target))
-    console.log(`Has iniciado sesión con el correo ${fields.email}`);
+    const {email,password} = Object.fromEntries(new window.FormData(e.target))
+    console.log(email,password)
+    dispatch(allActions.authActions.login(email,password))
+    console.log(`Has iniciado sesión con el correo ${email}`);
   }
 
   return (

@@ -12,8 +12,6 @@ const getGoogleOAuthURL= () => {
         "https://www.googleapis.com/auth/userinfo.email",
       ].join(" "),
     };
-    console.log({options})//asdas
-
     const qs = new URLSearchParams(options);
   
     return `${rootUrl}?${qs.toString()}`;
