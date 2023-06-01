@@ -11,9 +11,7 @@ export default function Page() {
 
   return(
       <>
-        <nav className="fixed top-0">
-          <Navbar />
-        </nav>
+        <Navbar />
         <main className="min-h-screen bg-[url('/images/home.png')] bg-fixed bg-cover bg-no-repeat bg-center">
           <div className='pt-[100px] md:pt-[185px] h-full w-full px-[20px]'>
             {
