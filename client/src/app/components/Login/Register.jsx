@@ -2,8 +2,11 @@
 
 import React from 'react';
 import {BsArrowLeft} from "react-icons/bs";
+import { useDispatch } from 'redux';
 
 const Register = ({setRegister}) => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const fields = Object.fromEntries(new window.FormData(e.target))

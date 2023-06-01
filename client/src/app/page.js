@@ -8,6 +8,9 @@ import Cards from "../app/components/HouseCard/Cards/Cards"
 import AnfitrionModal from "./components/AnfitrionModal/AnfitrionModal";
 import Categorias from "./components/Categorias";
 import { FiltrosModal } from "./components/FiltrosModal/FiltrosModal";
+import { Login } from "./components/Login/Login";
+import { Provider } from "react-redux";
+import store from "@/store";
 
 export default function Page() {
   const [modalFiltros, setModalFiltros] = useState(false)
@@ -28,7 +31,10 @@ export default function Page() {
     
   return(
       <>
-        <Navbar/>
+      <Provider store={store}>
+        <nav>
+          <Navbar/>
+        </nav>
         <header>
           <Hero/>
         </header>
@@ -39,8 +45,7 @@ export default function Page() {
           <Cards handleOpenModal={handleOpenModal}/>
         </main>
         <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal}/>
+        </Provider>
       </>
   )
-
-    
 }
