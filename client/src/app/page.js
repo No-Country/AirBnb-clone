@@ -1,10 +1,9 @@
-"use client"
-
+"use client";
 
 import React, { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
-import Cards from "../app/components/HouseCard/Cards/Cards"
+import Cards from "../app/components/HouseCard/Cards/Cards";
 import AnfitrionModal from "./components/AnfitrionModal/AnfitrionModal";
 import Categorias from "./components/Categorias";
 import { FiltrosModal } from "./components/FiltrosModal/FiltrosModal";
@@ -13,39 +12,47 @@ import { Provider } from "react-redux";
 import store from "@/store";
 
 export default function Page() {
-  const [modalFiltros, setModalFiltros] = useState(false)
+  const [modalFiltros, setModalFiltros] = useState(false);
 
+  const [modalOpen, setModalOpen] = useState(false);
 
-    const [modalOpen, setModalOpen] = useState(false);
+  const handleOpenModal = () => {
+    event.stopPropagation();
+    setModalOpen(true);
+  };
 
-     const handleOpenModal = () => {
-      event.stopPropagation();
-      setModalOpen(true);
-    };
-  
-    const handleCloseModal = () => {
-      event.stopPropagation();
-      setModalOpen(false);
-    };
+  const handleCloseModal = () => {
+    event.stopPropagation();
+    setModalOpen(false);
+  };
 
-    
-  return(
-      <>
+  return (
+    <>
       <Provider store={store}>
         <nav>
-          <Navbar/>
+          <Navbar />
         </nav>
         <header>
-          <Hero/>
+          <Hero />
         </header>
         <main>
-          {modalFiltros && <FiltrosModal modalFiltros={modalFiltros} setModalFiltros={setModalFiltros} />}
-          <h1 className="font-bold text-[24px] px-[80px] mt-[20px] md:text-[30px]">Descubre Lugares</h1>
-          <Categorias modalFiltros={modalFiltros} setModalFiltros={setModalFiltros} />
-          <Cards handleOpenModal={handleOpenModal}/>
+          {modalFiltros && (
+            <FiltrosModal
+              modalFiltros={modalFiltros}
+              setModalFiltros={setModalFiltros}
+            />
+          )}
+          <h1 className="font-bold text-[24px] px-[80px] mt-[20px] md:text-[30px]">
+            Descubre Lugares
+          </h1>
+          <Categorias
+            modalFiltros={modalFiltros}
+            setModalFiltros={setModalFiltros}
+          />
+          <Cards handleOpenModal={handleOpenModal} />
         </main>
-        <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal}/>
-        </Provider>
-      </>
-  )
+        <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal} />
+      </Provider>
+    </>
+  );
 }
