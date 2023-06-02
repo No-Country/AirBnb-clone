@@ -149,9 +149,9 @@ const user = {
 
 function ProfileCard() {
   return (
-    <div className='flex flex-col md:flex-row md:gap-[100px]'>
+    <div className='flex flex-col md:flex-row md:gap-[40px] lg:gap-[100px] w-full'>
       {/* "Aside" */}
-      <div className='w-full md:min-w-[342px] md:max-w-[342px]'>
+      <div className='w-full md:max-w-[342px]'>
 
         {/* Card */}
         <div className='flex flex-col items-center w-full gap-[10px] bxShadowPrimary rounded-3xl py-6'>
@@ -200,7 +200,7 @@ function ProfileCard() {
       </div>
 
       {/* "Main" */}
-      <div className='w-full md:pr-[30px]'>
+      <div className='w-full md:max-w-[380px] lg:max-w-[800px] md:pr-[30px]'>
         <div className='border-b-[1px] border-[#ddd] py-[20px]'>
           <h1 className='text-[24px] font-bold md:text-[32px]'>Información sobre mí</h1>
           <p><b>Nombre:</b> {user.firstName}</p>
