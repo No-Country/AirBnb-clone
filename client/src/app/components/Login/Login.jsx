@@ -5,11 +5,12 @@ import React, {useRef} from 'react';
 import Image from 'next/image';
 import allActions from '@/store/actions';
 import { useDispatch } from 'react-redux';
+import getGoogleOAuthURL from '@/app/utils/getGoogleUrl';
 
 const Login = ({ setRegister }) => {
   const container = useRef();
   const dispatch = useDispatch();
-
+  
   const handleRegister = () => {
     container.current.classList.add('fade-out')
     /*  */
@@ -18,11 +19,9 @@ const Login = ({ setRegister }) => {
     }, 400)
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
     const {email,password} = Object.fromEntries(new window.FormData(e.target))
-    console.log(email,password)
     dispatch(allActions.authActions.login(email,password))
     console.log(`Has iniciado sesión con el correo ${email}`);
   }
@@ -84,21 +83,22 @@ const Login = ({ setRegister }) => {
       </div>
 
       <div className='px-[20px]'>
-        <button 
-            className='w-full mt-[20px] bg-white h-[48px] rounded-md font-semibold text-black border-[1px] border-black hover:cursor-pointer relative'
-            onClick={handleRegister}
-          >
-            <Image 
-              src={logoGoogle} 
-              alt="Google Logo"
-              width={20}
-              height={20}
-              className='absolute top-[14px] left-[14px] md:left-[25px]'
-            />
-            <span>
-              Continúa con Google
-            </span>
-        </button>
+        <a href={getGoogleOAuthURL()}>
+          <button 
+              className='w-full mt-[20px] bg-white h-[48px] rounded-md font-semibold text-black border-[1px] border-black hover:cursor-pointer relative'
+            >
+              <Image 
+                src={logoGoogle} 
+                alt="Google Logo"
+                width={20}
+                height={20}
+                className='absolute top-[14px] left-[14px] md:left-[25px]'
+              />
+              <span>
+                Continúa con Google
+              </span>
+          </button>
+        </a>
       </div>
     </div>
   );

@@ -1,16 +1,19 @@
 "use client"
 
+import allActions from '@/store/actions';
 import React from 'react';
 import {BsArrowLeft} from "react-icons/bs";
-import { useDispatch } from 'redux';
+import { useDispatch } from 'react-redux';
 
 const Register = ({setRegister}) => {
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const fields = Object.fromEntries(new window.FormData(e.target))
-    console.log(`Hola ${fields.nombre} ${fields.apellido} te has registrado exitosamente con el correo ${fields.email} y contraseña ${fields.password}`);
+    const {email,password,repassword,nombre} = Object.fromEntries(new window.FormData(e.target))
+    console.log(email,password,repassword)
+    dispatch(allActions.authActions.register(email,password,repassword))
+    console.log(`Hola ${nombre} te has registrado exitosamente con el correo ${email} y contraseña ${password}`);
   }
 
   const handleLogin = () => {
@@ -76,7 +79,7 @@ const Register = ({setRegister}) => {
           <p className='absolute text-[12px] left-[15px] top-[5px] text-[#757575]'>Repite tu contraseña:</p>
           <input 
             type="password" 
-            name='repeatPassword'
+            name='repassword'
             className='w-full rounded-b-md h-full pt-[15px] pl-[15px]' 
           />
         </div>
