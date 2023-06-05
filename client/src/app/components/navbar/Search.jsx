@@ -26,7 +26,7 @@ const Search = () => {
                         </div>
                     </div>
                     <div className='text-sm pl-6 pr-3 text-gray-600 flex items-center gap-3'>
-                        <div className='p-2 bg-rose-500 rounded-full text-white'>
+                        <div className='p-2 bg-primary rounded-full text-white'>
                             <BiSearch size={35} />
                         </div>
                     </div>

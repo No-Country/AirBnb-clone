@@ -14,7 +14,7 @@ const Navbar = () => {
                         <Logo />
                         <UserMenu />
                     </div>
-                    <div className="px-5 flex justify-center">
+                    <div className="px-5 w-full flex justify-center">
                         <Search />
                     </div>
                 </Container>
