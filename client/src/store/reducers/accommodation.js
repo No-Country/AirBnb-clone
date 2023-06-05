@@ -3,7 +3,7 @@ const { default: accommodation } = require("../actions/accommodation")
 const initialState = {loading:false, accommodations:[], currentAccommodation:null}
 const accommodationReducer = (state = initialState, action)=>{
     switch(action.type){
-        case 'LOADING_ACCOMMODATIONS':
+        case 'IS_LOADING_ACCOMMODATIONS':
             return {
                 ...state,
                 loading:action.payload
