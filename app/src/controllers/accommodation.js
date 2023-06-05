@@ -27,6 +27,7 @@ const addAcc = async (req, res) => {
 try {
     const {
     name,
+    hostImage,
     summary,
     space,
     description,
@@ -47,6 +48,7 @@ try {
   } = req.body;
   const accommodation = new AccModel({
     name,
+    hostImage,
     summary,
     space,
     description,

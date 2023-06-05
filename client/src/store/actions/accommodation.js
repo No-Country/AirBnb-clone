@@ -7,7 +7,8 @@ const getAccomodations = () =>{
             dispatch({type:"IS_LOADING_ACCOMMODATIONS", payload:true})
             await api.get("accommodation/")
             .then(res=>{
-                dispatch({type:"GET_ACCOMMODATIONS", payload:res.data})
+                dispatch({type:"SAVE_ACCOMODATIONS", payload:res.data.accommodation})
+                console.log("get",res.data)
                 dispatch({type:"IS_LOADING_ACCOMMODATIONS", payload:false})
             })
             .catch(error=>{
@@ -31,7 +32,7 @@ const getAccomodation = (id) =>{
             dispatch({type:"IS_LOADING_ACCOMMODATIONS", payload:true})
             await api.get(`accommodation/${id}`)
             .then(res =>{
-                dispatch({type:"SAVE_CURRENT_ACCOMMODATION", payload:res.data})
+                dispatch({type:"SAVE_ACCOMODATION", payload:res.data})
                 dispatch({type:"IS_LOADING_ACCOMMODATIONS", payload:false})
             })
             .catch(function (error){
@@ -83,7 +84,7 @@ const updateAccommodation = (body) =>{
                 body:{body}
               })
             .then(res=>{
-                dispatch({type:"GET_ACCOMMODATIONS", payload:res.data})
+                dispatch({type:"SAVE_ACCOMODATION", payload:res.data})
                 dispatch({type:"IS_LOADING_ACCOMMODATIONS", payload:false})
                 dispatch(allActions.authActions.getAccomodations())
             })
