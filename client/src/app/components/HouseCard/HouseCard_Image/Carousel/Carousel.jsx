@@ -28,7 +28,7 @@ export default function Carousel({ children: slides}) {
                 <MdNavigateNext onClick={next} className={crossClass()} />
             </div>
             <div className="absolute bottom-1 flex left-[40%] z-30 text-xl">
-                {slides.map((e,i)=>
+                {slides?.map((e,i)=>
                 {
                     return curr == i ? <RxDotFilled key={i} className="text-white"/> :
                     <RxDotFilled className="text-stone-400" key={i}/>
