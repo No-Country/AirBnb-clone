@@ -87,6 +87,10 @@ const accommodationSchema = new mongoose.Schema({
   air_condition: {
     type: Boolean,
   },
+  userOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Users',
+  },
 });
 
 mongoose.set("strictQuery", false);
