@@ -40,6 +40,7 @@ const getAccommodation = (id) => {
     } catch (e) {
       console.log(e);
       dispatch(accommodationSlice.actions.isLoadingAccommodations(false));
+
     }
   }
 }

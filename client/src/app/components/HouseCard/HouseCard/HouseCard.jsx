@@ -11,7 +11,7 @@ const router = useRouter()
 
     return (
         <div className="pr-3 pl-3 pb-8 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4.5 cursor-pointer" >
-            <HouseCardImage handleOpenModal={handleOpenModal} image={image} alfitrionImage={hostImage}/>
+            <HouseCardImage handleOpenModal={handleOpenModal} image={image} anfitrionImage={hostImage}/>
 
             <div className="m-1" onClick={() => router.push("/rooms")}>
                 <div className="flex justify-between mt-3 ">
