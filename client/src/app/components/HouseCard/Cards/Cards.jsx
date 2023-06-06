@@ -1,34 +1,27 @@
 import React, { useEffect } from "react";
 import HouseCard from "../HouseCard/HouseCard";
-import { useDispatch, useSelector } from "react-redux";
-import allActions from "@/store/actions";
-import accommodationReducer from "@/store/reducers/accommodation";
 
-export default function Cards({ handleOpenModal }) {
-  const dispatch = useDispatch();
-  const accommodations = useSelector((state) => state);
-
-  useEffect(() => {
-    dispatch(allActions.accommodationActions.getAccomodations());
-    console.log("state", accommodations.accommodationReducer.accommodations);
-  }, [dispatch]);
+export default function Cards({ handleOpenModal, accommodations }) {
+  useEffect(()=>{
+    console.log(accommodations,accommodations)
+  },[accommodations])
 
   return (
     <div className="flex flex-wrap m-12">
-      {accommodations.accommodationReducer.accommodations.map((e, i) => (
+      {accommodations?.map((e, i) => (
         <HouseCard
-          key={i}
-          handleOpenModal={handleOpenModal}
-          hostImage={e.hostImage}
-          anfitrion={e.name}
-          lugar={e.address?.city}
-          fecha={e.fecha}
-          precio={e.price}
-          estrellas={e.rating}
-          image={e.image}
+        key={i}
+        handleOpenModal={handleOpenModal}
+        hostImage={e.hostImage}
+        anfitrion={e.name}
+        lugar={e.address?.city}
+        fecha={e.fecha}
+        precio={e.price}
+        estrellas={e.rating}
+        image={e.image}
         />
       ))}
-    </div>    
+    </div>
   );
 }
 

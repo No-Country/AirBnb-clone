@@ -1,8 +1,8 @@
-import authActions from './auth'
-import accommodationActions from './accommodation'
+import authActions from './auth';
+import accommodationsActions from './accommodation';
 const allActions = {
     authActions,
-    accommodationActions
+    accommodationsActions
 }
 
 export default allActions

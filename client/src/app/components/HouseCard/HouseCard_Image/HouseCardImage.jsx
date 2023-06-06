@@ -16,7 +16,7 @@ const HouseCardImage = (props) => {
   </div>
             <Carousel>
                 {
-                    props.image.map((s, i) => (
+                    props.image?.map((s, i) => (
                         <img
                         onClick={() => router.push("/rooms")}
                         key={i}
