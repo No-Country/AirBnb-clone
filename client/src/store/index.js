@@ -1,10 +1,15 @@
-import rootReducer from './reducers';
+'use client'
 import { configureStore } from '@reduxjs/toolkit';
-import authReducer from './reducers/auth'
+import authSlice from './slices/auth';
+import accommodationSlice from './slices/accommodationSlice';
+
+const rootReducer = {
+    auth:authSlice.reducer,
+    accommodation:accommodationSlice.reducer,
+}
 
 const store = configureStore({
     reducer:rootReducer,
-    auth:authReducer,
 });
 
 

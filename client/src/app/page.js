@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import Hero from "./components/hero/Hero";
 import Cards from "../app/components/HouseCard/Cards/Cards";
@@ -8,13 +8,19 @@ import AnfitrionModal from "./components/AnfitrionModal/AnfitrionModal";
 import Categorias from "./components/Categorias";
 import { FiltrosModal } from "./components/FiltrosModal/FiltrosModal";
 import { Login } from "./components/Login/Login";
-import { Provider } from "react-redux";
-import store from "@/store";
+import { useDispatch, useSelector } from "react-redux";
+import allActions from "@/store/actions";
 
 export default function Page() {
+  const dispatch = useDispatch();
   const [modalFiltros, setModalFiltros] = useState(false);
-
   const [modalOpen, setModalOpen] = useState(false);
+  const accommodations = useSelector((state)=>state.accommodation.accommodations.accommodation)
+
+  useEffect(() => {
+    dispatch(allActions.accommodationsActions.getAccommodations());
+    dispatch(allActions.authActions.refreshToken());
+  }, [dispatch]);
 
   const handleOpenModal = () => {
     event.stopPropagation();
@@ -28,7 +34,6 @@ export default function Page() {
 
   return (
     <>
-      <Provider store={store}>
         <nav>
           <Navbar />
         </nav>
@@ -49,10 +54,9 @@ export default function Page() {
             modalFiltros={modalFiltros}
             setModalFiltros={setModalFiltros}
           />
-          <Cards handleOpenModal={handleOpenModal} />
+          <Cards handleOpenModal={handleOpenModal} accommodations={accommodations}/>
         </main>
         <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal} />
-      </Provider>
     </>
   );
 }

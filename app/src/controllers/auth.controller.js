@@ -8,14 +8,6 @@ const registerUser = async (req, res) => {
   try {
     const user = req.body;
     // Username and password are flagged as UNIQUE
-    // Check if username exist
-    const username = user.username;
-    const existingUser = await UsersModel.findOne({ username });
-
-    if (existingUser) {
-        return res.status(400).json({ message: 'User already exists' });
-    }
-
     // Check if email exist
     const email = user.email;
     const existingEmail = await UsersModel.findOne({ email });
@@ -88,10 +80,10 @@ const googleOauthHandler = async(req,res) =>{
     const { token, expiresIn } = generateToken(user.id);
     generateRefreshToken(user.id, res);
 
-    return res.status(201).json({ token, expiresIn });
+    return res.redirect(`${config.origin2}`);
   } catch (error) {
     console.log(error)
-    return res.redirect(`${config.origin}/oauth/error`)
+    return res.redirect(`${config.origin2}/oauth/error`)
 }
 }
 
