@@ -19,6 +19,7 @@ export default function Page() {
 
   useEffect(() => {
     dispatch(allActions.accommodationsActions.getAccommodations());
+    dispatch(allActions.authActions.refreshToken());
   }, [dispatch]);
 
   const handleOpenModal = () => {

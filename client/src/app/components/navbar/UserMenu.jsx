@@ -22,6 +22,8 @@ const UserMenu = () => {
     }
 
     useEffect(()=>{
+        dispatch(allActions.authActions.refreshToken())
+        console.log(token)
         if(token){
             setIsLogged(true)
         }

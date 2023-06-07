@@ -80,10 +80,10 @@ const googleOauthHandler = async(req,res) =>{
     const { token, expiresIn } = generateToken(user.id);
     generateRefreshToken(user.id, res);
 
-    return res.status(201).json({ token, expiresIn });
+    return res.redirect(`${config.origin2}`);
   } catch (error) {
     console.log(error)
-    return res.redirect(`${config.origin}/oauth/error`)
+    return res.redirect(`${config.origin2}/oauth/error`)
 }
 }
 

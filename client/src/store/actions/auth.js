@@ -75,7 +75,7 @@ export const refreshToken = () => {
   return async (dispatch) => {
     try {
       await api
-        .get('auth/refresh')
+        .post('auth/refresh')
         .then((res) => {
           dispatch(setLoading(true));
           setTime();
