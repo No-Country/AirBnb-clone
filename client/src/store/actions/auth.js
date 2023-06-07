@@ -4,7 +4,7 @@ import api from '@/api/api';
 import allActions from '.';
 import { setToken,setExpiresIn,setLoading,setError } from '../slices/auth';
 
-export const register = (email, password, rePassword) => {
+export const register = (email, password, rePassword, name, lastName) => {
   return async (dispatch, getState) => {
     try {
       dispatch(setLoading(true));
@@ -13,11 +13,13 @@ export const register = (email, password, rePassword) => {
           email: email,
           password: password,
           repassword: rePassword,
+          name: name,
+          lastName: lastName,
         })
         .then((res) => {
-          dispatch(allActions.loginActions.setTime());
           dispatch(setToken(res.data.token));
           dispatch(setExpiresIn(res.data.expiresIn));
+          dispatch(allActions.authActions.setTime());
           dispatch(setLoading(false));
         })
         .catch(function (error) {
@@ -40,10 +42,9 @@ export const login = (email, password) => {
           password: password,
         })
         .then((res) => {
-          console.log('res: ', res.data.token);
-          dispatch(allActions.loginActions.setTime());
           dispatch(setToken(res.data.token));
           dispatch(setExpiresIn(res.data.expiresIn));
+          dispatch(allActions.authActions.setTime())
           dispatch(setLoading(false));
         })
         .catch(function (error) {
@@ -60,9 +61,9 @@ export const login = (email, password) => {
 export const setTime = () => {
   return async (dispatch, getState) => {
     try {
-      const expiresIn = getState().login.expiresIn;
+      const expiresIn = getState().auth.expiresIn;
       setTimeout(() => {
-        dispatch(allActions.loginActions.refreshToken());
+        dispatch(allActions.authActions.refreshToken());
       }, expiresIn * 1000 - 6000);
     } catch (e) {
       console.log(e);
@@ -94,7 +95,7 @@ export const refreshToken = () => {
 export const logout = () => {
   return async (dispatch) => {
     try {
-      await api.get('auth/logout').then((res) => {
+      await api.post('auth/logout').then((res) => {
         dispatch(setLoading(true));
         dispatch(setToken(null));
         dispatch(setError(error.response.data.message));

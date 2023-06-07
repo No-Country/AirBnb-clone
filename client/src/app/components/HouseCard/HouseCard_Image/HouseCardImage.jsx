@@ -12,7 +12,7 @@ const HouseCardImage = (props) => {
   <RiHeart3Fill className="absolute text-3xl top-3 right-3 text-black z-10 opacity-50 pt-0.5 " />
   <RiHeart3Line className="absolute text-3xl top-3 right-3 text-white z-10 pt-0.5" />
   <div onClick={props.handleOpenModal} className="absolute w-10 z-50 bottom-4 left-4 bg-gray-300 transition-all p-1 rounded-full hover:bg-white hover:shadow-sm hover:shadow-white max-w-lg max-h-10 overflow-hidden">
-    <img className="rounded-full " src={props.hostImage} />
+    <img className="rounded-full " src={props.anfitrionImage} />
   </div>
             <Carousel>
                 {
