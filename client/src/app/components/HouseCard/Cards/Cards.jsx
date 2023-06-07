@@ -3,7 +3,6 @@ import HouseCard from "../HouseCard/HouseCard";
 
 export default function Cards({ handleOpenModal, accommodations }) {
   useEffect(()=>{
-    console.log(accommodations,accommodations)
   },[accommodations])
 
   return (

@@ -10,10 +10,10 @@ const Register = ({setRegister}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const {email,password,repassword,nombre} = Object.fromEntries(new window.FormData(e.target))
-    console.log(email,password,repassword)
-    dispatch(allActions.authActions.register(email,password,repassword))
-    console.log(`Hola ${nombre} te has registrado exitosamente con el correo ${email} y contraseña ${password}`);
+    const {email,password,repassword,name,lastName} = Object.fromEntries(new window.FormData(e.target))
+    console.log(email,password,repassword,name,lastName)
+    dispatch(allActions.authActions.register(email,password,repassword,name,lastName))
+    console.log(`Hola ${name} te has registrado exitosamente con el correo ${email} y contraseña ${password}`);
   }
 
   const handleLogin = () => {
@@ -43,7 +43,7 @@ const Register = ({setRegister}) => {
           <p className='absolute text-[12px] left-[15px] top-[5px] text-[#757575]'>Ingresa tu nombre:</p>
           <input 
             type="text" 
-            name='nombre'
+            name='name'
             className='w-full rounded-t-md h-full pt-[15px] pl-[15px]'
           />
         </div>
@@ -52,7 +52,7 @@ const Register = ({setRegister}) => {
           <p className='absolute text-[12px] left-[15px] top-[5px] text-[#757575]'>Ingresa tu primer apellido:</p>
           <input 
             type="text" 
-            name='apellido'
+            name='lastName'
             className='w-full h-full pt-[15px] pl-[15px]'
           />
         </div>

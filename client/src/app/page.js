@@ -19,7 +19,6 @@ export default function Page() {
 
   useEffect(() => {
     dispatch(allActions.accommodationsActions.getAccommodations());
-    console.log(accommodations);
   }, [dispatch]);
 
   const handleOpenModal = () => {
@@ -54,7 +53,7 @@ export default function Page() {
             modalFiltros={modalFiltros}
             setModalFiltros={setModalFiltros}
           />
-          <Cards handleOpenModal={handleOpenModal} accommodations={accommodations} />
+          <Cards handleOpenModal={handleOpenModal} accommodations={accommodations}/>
         </main>
         <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal} />
     </>
