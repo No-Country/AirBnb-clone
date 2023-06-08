@@ -1,7 +1,7 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
-import "dotenv/config";
+import config from "dotenv/config";
 import authRouter from "./routes/auth.route.js"
 import routerUsers from "./routes/users.js";
 import paymentRouter from "./routes/payment.route.js";
@@ -11,7 +11,9 @@ import routerAcc from "./routes/accommodation.js";
 
 const app = express();
 
-const whiteList = [process.env.ORIGIN1]
+const whiteList = [process.env.ORIGIN1];
+const whiteList = [process.env.ORIGIN1];
+
 app.use(cors({
     origin:function(origin, callback){
         if(!origin||whiteList.includes(origin)){
@@ -32,6 +34,8 @@ app.use('/api/auth', authRouter);
 app.use('/api/payment', paymentRouter);
 app.use('/api/accommodation', routerAcc)
 app.use('/api/favourites', routerFavs);
+
+
 
 // in case of using another route
 app.all("*", (req, res) => {

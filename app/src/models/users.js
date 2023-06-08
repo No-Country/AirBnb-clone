@@ -37,6 +37,9 @@ const userSchema = new Schema(
     lastname: {
       type: String,
     },
+    image:{
+      type:String,
+    },
     role: {
       type: String,
       default: "user",
