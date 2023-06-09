@@ -34,9 +34,9 @@
 
 ### Características Técnicas
 
-#### Api de Google Maps
+#### Api de maps
 
-<p>La API de Google Maps es indispensable para recrear la funcionalidad de ubicación y navegación de la página original.</p>
+<p>La API de Maps es indispensable para recrear la funcionalidad de ubicación y navegación de la página original.</p>
 
 #### Método de Pago
 
