@@ -4,7 +4,7 @@ import api from '@/api/api';
 import allActions from '.';
 import { setLoading,setError, setUser } from '../slices/user';
 
-export const getUser = () =>{
+export const getUser = (id) =>{
     return async (dispatch) => {  
         try {
             dispatch(setLoading(true));

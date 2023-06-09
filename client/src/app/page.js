@@ -10,19 +10,27 @@ import { FiltrosModal } from "./components/FiltrosModal/FiltrosModal";
 import { Login } from "./components/Login/Login";
 import { useDispatch, useSelector } from "react-redux";
 import allActions from "@/store/actions";
+import user from "@/store/actions/user";
 
 export default function Page() {
   const dispatch = useDispatch();
   const [modalFiltros, setModalFiltros] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const accommodations = useSelector((state)=>state.accommodation.accommodations.accommodation)
+  const currentUser = useSelector((state)=>state.user.current_user?.user)
 
   useEffect(() => {
     dispatch(allActions.accommodationsActions.getAccommodations());
     dispatch(allActions.authActions.refreshToken());
   }, [dispatch]);
 
-  const handleOpenModal = () => {
+  const getUser = (id) =>{
+    dispatch(allActions.userActions.getUser(id))
+    console.log(currentUser)
+  }
+
+  const handleOpenModal = (id) => {
+    getUser(id)
     event.stopPropagation();
     setModalOpen(true);
   };
@@ -56,7 +64,7 @@ export default function Page() {
           />
           <Cards handleOpenModal={handleOpenModal} accommodations={accommodations}/>
         </main>
-        <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal} />
+        <AnfitrionModal isOpen={modalOpen} onClose={handleCloseModal} currentUser={currentUser?currentUser:currentUser}/>
     </>
   );
 }

@@ -13,7 +13,7 @@ export const register = (email, password, rePassword, name, lastName) => {
           email: email,
           password: password,
           repassword: rePassword,
-          name: name,
+          firstName: name,
           lastName: lastName,
         })
         .then((res) => {

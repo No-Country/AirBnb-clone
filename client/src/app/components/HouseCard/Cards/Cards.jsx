@@ -1,23 +1,22 @@
 import React, { useEffect } from "react";
 import HouseCard from "../HouseCard/HouseCard";
 
-export default function Cards({ handleOpenModal, accommodations }) {
-  useEffect(()=>{
-  },[accommodations])
-
+export default function Cards({ handleOpenModal,accommodations }) {
+  
   return (
     <div className="flex flex-wrap m-12">
       {accommodations?.map((e, i) => (
         <HouseCard
-        key={i}
-        handleOpenModal={handleOpenModal}
-        hostImage={e.hostImage}
-        anfitrion={e.name}
-        lugar={e.address?.city}
-        fecha={e.fecha}
-        precio={e.price}
-        estrellas={e.rating}
-        image={e.image}
+          key={i}
+          handleOpenModal={handleOpenModal}
+          hostImage={e.hostImage}
+          anfitrion={e.name}
+          lugar={e.address?.city}
+          fecha={e.fecha}
+          precio={e.price}
+          estrellas={e.rating}
+          image={e.image}
+          userOwner={e.userOwner}
         />
       ))}
     </div>

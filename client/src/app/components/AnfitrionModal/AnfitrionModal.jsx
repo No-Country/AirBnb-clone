@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FiX } from "react-icons/fi";
 import AnfitrionCard from "./AnfitrionCard/AnfitrionCard";
 import Confirmada from "./AnfitrionCard/Confirmada";
 import Descripcion from "./AnfitrionCard/Descripcion";
 import Denunciar from "./AnfitrionCard/Denunciar";
 import Calificacion from "./AnfitrionCard/Calificaciones";
+import { useDispatch } from "react-redux";
+import allActions from "@/store/actions";
 
-export default function AnfitrionModal({ isOpen, onClose }) {
+export default function AnfitrionModal({ isOpen, onClose , currentUser}) {
 
   useEffect(() => {
+    console.log("currentUser",currentUser)
     document.body.style.overflow = isOpen ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto"
@@ -40,7 +43,7 @@ export default function AnfitrionModal({ isOpen, onClose }) {
             <FiX className="w-5 h-5 text-black" />
           </div>
         </div>
-        <AnfitrionCard imagen={datos.imagen} nombre={datos.nombre} evalucaciones={datos.evalucaciones} calificacion={datos.calificacion} experiencia={datos.experiencia}/>
+        <AnfitrionCard imagen={currentUser?.picture} nombre={currentUser?.firstName} evalucaciones={datos.evalucaciones} calificacion={datos.calificacion} experiencia={datos.experiencia}/>
         <Descripcion descripcion={datos.descripcion}/>
         <Confirmada />
         <Calificacion reseñas={datos.reseñas}/>

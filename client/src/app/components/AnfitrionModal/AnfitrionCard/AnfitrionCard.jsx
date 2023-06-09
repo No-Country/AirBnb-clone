@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { GiRoundStar } from "react-icons/gi";
 
 export default function AnfitrionCard(props) {
 
+    useEffect(()=>{
+        console.log(props.imagen)
+    },[])
 
     return (
         <div className="flex m-4 mt-0 bg-white shadow-2xl py-3 rounded-3xl border border-t-0">
